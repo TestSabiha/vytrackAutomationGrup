@@ -7,12 +7,9 @@ public class DataProviderUtil {
     Object[][] loginCredentials() {
 
         return new Object[][]{
-                {"user44"},
-                {"user49"},
-                {"salesmanager133"},
-                {"salesmanager136"},
-                {"storemanager75"},
-                {"storemanager78"}
+                {"user1"},
+                {"salesmanager101"},
+                {"storemanager51"},
         };
 
     }
