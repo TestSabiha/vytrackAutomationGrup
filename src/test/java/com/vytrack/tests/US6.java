@@ -1,6 +1,4 @@
 package com.vytrack.tests;
-
-
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -16,7 +14,6 @@ public class US6 {
     AC #1:  users should see “view, edit, delete” when they hover the mouse to the 3 dots “…”
 
      */
-
 
     @Test
     public void US6_test() throws InterruptedException {
