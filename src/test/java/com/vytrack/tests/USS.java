@@ -2,12 +2,8 @@ package com.vytrack.tests;
 
 
 
-public class US {
-
+public class USS {
 
 
 
 }
-
-}
-
