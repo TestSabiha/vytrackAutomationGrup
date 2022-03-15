@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class VytrackUtils {
+public class VyTrackUtils {
     public static void login(String username, String password) {
         //go to website
         Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
@@ -76,8 +76,8 @@ public class VytrackUtils {
         String subModuleLocator = "//span[normalize-space()='" + subTab + "' and contains(@class, 'title title-level-2')]";
         WebElement vehiclesModelElement = Driver.getDriver().findElement(By.xpath(subModuleLocator));
         //we are using for waiting until loader mask disappearing
-        VytrackUtils.waitTillLoaderMaskDisappear();
+        VyTrackUtils.waitTillLoaderMaskDisappear();
         vehiclesModelElement.click();
-        VytrackUtils.waitTillLoaderMaskDisappear();
+        VyTrackUtils.waitTillLoaderMaskDisappear();
     }
 }
