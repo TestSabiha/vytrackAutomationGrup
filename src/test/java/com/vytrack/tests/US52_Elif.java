@@ -1,5 +1,6 @@
 package com.vytrack.tests;
 
+import com.vytrack.utilities.VyTrackUtils;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,18 +32,22 @@ public class US52_Elif {
         //Login as store or sales manager
         //Users are on the homepage
 
-        WebElement username = driver.findElement(By.xpath("//input[@placeholder='Username or Email']"));
-        username.sendKeys("storemanager54");
+      //  WebElement username = driver.findElement(By.xpath("//input[@placeholder='Username or Email']"));
+        //        username.sendKeys("storemanager54");
+        //
+        //        WebElement password = driver.findElement(By.xpath("//input[@placeholder='Password']"));
+        //        password.sendKeys("UserUser123");
+        //
+        //        WebElement loginButton = driver.findElement(By.xpath("//button[@class='btn btn-uppercase btn-primary pull-right']"));
+        //        loginButton.click();
 
-        WebElement password = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-        password.sendKeys("UserUser123");
-
-        WebElement loginButton = driver.findElement(By.xpath("//button[@class='btn btn-uppercase btn-primary pull-right']"));
-        loginButton.click();
+        VyTrackUtils.loginAsStoreManger();
 
         //Click the Vehicle contracts under the Fleet
-        WebElement fleet = driver.findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][1]"));
-        fleet.click();
+        //WebElement fleet = driver.findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][1]"));
+        //fleet.click();
+
+        VyTrackUtils.goToPage("Fleet", "Vehicle Contracts");
 
 
 
@@ -53,13 +58,33 @@ public class US52_Elif {
 
 
 
-        //Verify managers can access the Vehicle contracts page
 
-        //AC1: Store managers and Sales managers access the Vehicle contracts page.
-        //Expected URL: https://qa2.vytrack.com/entity/Extend_Entity_VehicleContract
-        //Expected title: All - Vehicle Contract - Entities - System - Car - Entities - System
+
+
+
 
     }
+
+    @Test
+
+    public void test_1(){
+
+        VyTrackUtils.loginAsSalesManager();
+
+        VyTrackUtils.goToPage("Fleet", "Vehicle Contracts");
+
+    }
+
+    @Test
+
+    public void test_2(){
+
+        VyTrackUtils.loginAsDriver();
+
+        VyTrackUtils.goToPage("Fleet", "Vehicle Contracts");
+
+    }
+
 }
 
 /*
