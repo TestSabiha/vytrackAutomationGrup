@@ -1,10 +1,12 @@
 package com.vytrack.tests;
 
+import com.google.common.base.Verify;
 import com.vytrack.utilities.VyTrackUtils;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -27,61 +29,52 @@ public class US52_Elif {
     }
 
     @Test
-    public void US52(){
+    public void US52_1(){
 
-        //Login as store or sales manager
-        //Users are on the homepage
-
-      //  WebElement username = driver.findElement(By.xpath("//input[@placeholder='Username or Email']"));
-        //        username.sendKeys("storemanager54");
-        //
-        //        WebElement password = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-        //        password.sendKeys("UserUser123");
-        //
-        //        WebElement loginButton = driver.findElement(By.xpath("//button[@class='btn btn-uppercase btn-primary pull-right']"));
-        //        loginButton.click();
-
+        //Login as store or store manager
         VyTrackUtils.loginAsStoreManger();
 
         //Click the Vehicle contracts under the Fleet
-        //WebElement fleet = driver.findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][1]"));
-        //fleet.click();
-
         VyTrackUtils.goToPage("Fleet", "Vehicle Contracts");
 
+        //Verify managers can access the Vehicle contracts page
+        String expectedURL = "https://qa2.vytrack.com/entity/Extend_Entity_VehicleContract";
+        String actualURL = driver.getCurrentUrl();
 
-
-
-
-
-
-
-
-
-
-
-
-
+        Assert.assertEquals(actualURL, expectedURL);
 
     }
 
     @Test
 
-    public void test_1(){
-
+    public void US52_2(){
+        //Login as sales manager
         VyTrackUtils.loginAsSalesManager();
 
+        //Click the Vehicle contracts under the Fleet
         VyTrackUtils.goToPage("Fleet", "Vehicle Contracts");
+
+        //Verify managers can access the Vehicle contracts page
+        String expectedURL = "https://qa2.vytrack.com/entity/Extend_Entity_VehicleContract";
+        String actualURL = driver.getCurrentUrl();
+
+        Assert.assertEquals(actualURL, expectedURL);
 
     }
 
     @Test
 
-    public void test_2(){
+    public void US52_3(){
 
+        //Login as drivers
         VyTrackUtils.loginAsDriver();
 
+        //Click the Vehicle contracts under the Fleet
         VyTrackUtils.goToPage("Fleet", "Vehicle Contracts");
+
+        //Verify users see an error message: “You do not have permission to perform this action.”
+        WebElement errorMessage = driver.findElement(By.linkText("You do not have permission to perform this action."));
+        errorMessage.isDisplayed();
 
     }
 
