@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.Assert.assertEquals;
+
 public class US52_Elif {
 
     WebDriver driver;
@@ -58,7 +60,7 @@ public class US52_Elif {
         String expectedURL = "https://qa2.vytrack.com/entity/Extend_Entity_VehicleContract";
         String actualURL = driver.getCurrentUrl();
 
-        Assert.assertEquals(actualURL, expectedURL);
+        assertEquals(actualURL, expectedURL);
 
     }
 
