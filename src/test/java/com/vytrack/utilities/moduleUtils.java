@@ -1,17 +1,14 @@
 package com.vytrack.utilities;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
-public class ExtraUtils {
+public class moduleUtils {
     public static void goToModule(String head, String module) {
-        // WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        //  WebElement activities =
-        Driver.getDriver().findElement(By.linkText(head)).click();
-        //wait.until(ExpectedConditions.elementToBeClickable(activities));
+       Actions actions = new Actions(Driver.getDriver());
+       actions.moveToElement(Driver.getDriver().findElement(By.linkText(head))).perform();
+
+
         Driver.getDriver().findElement(By.linkText(module)).click();
 
 
