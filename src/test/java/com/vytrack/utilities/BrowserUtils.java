@@ -6,7 +6,11 @@ import org.testng.Assert;
 import java.util.Set;
 
 /*
+
 in this class only generate utility methods that are not related to some specific page
+
+in this class only generate utlity methods that are not related to dsome spesfic page
+
  */
 public class BrowserUtils {
 
