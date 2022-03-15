@@ -2,7 +2,7 @@ package com.vytrack.tests;
 
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
-import com.vytrack.utilities.ExtraUtils;
+import com.vytrack.utilities.moduleUtils;
 import com.vytrack.utilities.VyTrackUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,7 +21,7 @@ public class US61 {
         BrowserUtils.sleep(2);
 
         // Go to "Marketing", then go to "Campaigns"
-        ExtraUtils.goToModule("Marketing", "Campaigns");
+        moduleUtils.goToModule("Marketing", "Campaigns");
         BrowserUtils.sleep(2);
 
         // Locate Filter icon and click it
@@ -74,7 +74,7 @@ public class US61 {
         BrowserUtils.sleep(2);
 
         // Go to "Marketing", then go to "Campaigns"
-        ExtraUtils.goToModule("Marketing", "Campaigns");
+       moduleUtils.goToModule("Marketing", "Campaigns");
         BrowserUtils.sleep(2);
 
         // Locate Filter icon and click it
