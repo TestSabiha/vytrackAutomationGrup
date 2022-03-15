@@ -1,4 +1,6 @@
 package com.vytrack.tests;
+import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -19,7 +21,7 @@ public class US6 {
     public void US6_test() throws InterruptedException {
 
         //1.	Users are on the homepage
-        Driver.getDriver().get("https://qa2.vytrack.com/user/login ");
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         //2.    Users can log in as a store manager
         WebElement usernameInput = Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput']"));
@@ -33,11 +35,11 @@ public class US6 {
 
         //3.	Click the Vehicles under the Fleet
         WebElement fleet = Driver.getDriver().findElement(By.xpath("//ul[@class='nav-multilevel main-menu']/li[2]"));
-        Thread.sleep(1000);
+        BrowserUtils.sleep(3);
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(fleet).perform();
 
-        Thread.sleep(1000);
+        BrowserUtils.sleep(3);
 
         //4.	Verify any car info has 3 dots “...”, and there are “view, edit, delete” icons
 
@@ -48,7 +50,7 @@ public class US6 {
 
         WebElement threeDot = Driver.getDriver().findElement(By.xpath("//table[@class='grid table-hover table table-bordered table-condensed']/tbody/tr[1]/td[21]/div/div"));
 
-        Thread.sleep(1000);
+        BrowserUtils.sleep(2);
 
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         js.executeScript("arguments[0].scrollIntoView(true)", threeDot);
