@@ -2,7 +2,10 @@ package com.vytrack.utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+
 import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -53,7 +56,21 @@ public class VyTrackUtils {
         //pass password
         Driver.getDriver().findElement(By.cssSelector("#prependedInput2")).sendKeys(ConfigurationReader.getProperty("password"));
         //click login button
-        Driver.getDriver().findElement(By.tagName("button")).click();
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        WebElement loginButton = Driver.getDriver().findElement(By.tagName("button"));
+        loginButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+
+    }
+    public static void waitTillLoaderMaskDisappear() {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+            WebElement loaderMask = Driver.getDriver().findElement(By.cssSelector("div[class='loader-mask shown']"));
+            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void waitTillLoaderMaskDisappear() {
