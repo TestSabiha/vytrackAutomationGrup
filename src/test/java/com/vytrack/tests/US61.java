@@ -76,7 +76,11 @@ public class US61 {
         BrowserUtils.sleep(2);
 
         // Go to "Marketing", then go to "Campaigns"
+
         moduleUtils.goToModule("Marketing", "Campaigns");
+
+       moduleUtils.goToModule("Marketing", "Campaigns");
+
         BrowserUtils.sleep(2);
 
         // Locate Filter icon and click it
