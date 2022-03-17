@@ -33,19 +33,23 @@ public class US53_VehiclesModelsPage {
 
     @Test
     public void verify_columns_as_sales_manager() {
+
         //login as sales manager
         VyTrackUtils.loginAsSalesManager();
+
         //go to Fleet tab
         String fleetTabElementLocator = "//span[normalize-space()='Fleet' and contains(@class, 'title title-level-1')]";
 
         WebElement fleetTabElement = Driver.getDriver().findElement(By.xpath(fleetTabElementLocator));
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(fleetTabElement).perform();
+
         //click Vehicles Model Selection
         String vehiclesModelModuleLocator = "//span[normalize-space()='Vehicles Model' and contains(@class, 'title title-level-2')]";
         WebElement vehiclesModelElement = Driver.getDriver().findElement(By.xpath(vehiclesModelModuleLocator));
         vehiclesModelElement.click();
         BrowserUtils.sleep(3);
+
         //Verify 10 columns on Vehicle Models Page
         List<WebElement> headerElements = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']//th//span[@class='grid-header-cell__label']"));
         System.out.println("Number of Columns " + headerElements.size());
